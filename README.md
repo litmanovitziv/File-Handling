@@ -1,12 +1,12 @@
 hexedit tool
 ============
-In this task we will write our own version of hexedit for working with binary files.
-Write a program hexeditplus which receives a single command-line argument :
-./hexeditplus filename
-The argument filename is the file get used for various operations, defined below.
-
-First, define a menu for the user with a number of predefined functions, to which we will add functions as we go.
-
+In this task we will write our own version of hexedit for working with binary files.  
+Write a program hexeditplus which receives a single command-line argument :  
+./hexeditplus filename  
+The argument filename is the file get used for various operations, defined below.  
+  
+First, define a menu for the user with a number of predefined functions, to which we will add functions as we go.  
+  
 For example, the command line ./hexeditplus abc Will print :  
 File: <file name>, choose action:  
 1-Display  
@@ -16,10 +16,10 @@ File: <file name>, choose action:
 5-Copy from file  
 6-Quit  
   
-Use an array with the above menu names and pointers to a functions.
-Each function described below should get filename as a parameter
-If filename cannot be opened for reading and writing print an error message and exit.
-
+Use an array with the above menu names and pointers to a functions.  
+Each function described below should get filename as a parameter.  
+If filename cannot be opened for reading and writing print an error message and exit.  
+  
 <table>
 <tr>
 <td>Name</td>
