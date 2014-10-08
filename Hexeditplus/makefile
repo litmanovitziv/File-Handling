@@ -1,8 +1,8 @@
-OPERATIONS := $(patsubst %.c,%,$(wildcard Operations/*.c))
+OPERATIONS := $(patsubst Operations/%.c,Operations/bin/%,$(wildcard Operations/*.c))
 
 all: $(OPERATIONS) hexeditplus
 
-%: %.c
+Operations/bin/%: Operations/%.c
 	gcc -m32 -g -Wall -o $@ $<
 
 hexeditplus: ../library/LineParser.o hexeditplus.c
@@ -17,4 +17,4 @@ is_pal: is_pal.c
 	gcc -g -m32 -ansi -Wall is_pal.o -o is_pal
 
 clean:
-	\rm *.o *~ hexeditplus $(OPERATIONS)
+	\rm *.o hexeditplus $(OPERATIONS)

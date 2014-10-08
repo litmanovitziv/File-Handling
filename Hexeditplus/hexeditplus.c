@@ -33,7 +33,8 @@ int main (int argc, char** argv){
 				{ "Copy from file" ,Copy_from_file} , { "Copy from memory" , Copy_from_mem }, {"Quit" , NULL} };
 
 	while(1) {
-		printf("Menu :\n");
+		printf("Fle : %s\n", argv[1]);
+		printf("Choose Action:\n");
 		int index = 0;
 		int length = (sizeof(menu))/(sizeof(Function));	/* The allocated size of menu devided into the allocated size of Function */
 		while (index<length){
@@ -68,7 +69,7 @@ void display(char* file) {
 	char* line = malloc(256);
 	char input[10];
 
-	strcpy(line, "./Operations/display");
+	strcpy(line, "./Operations/bin/display");
 	strcat(line, " ");
 	strcat(line, file);
 	strcat(line, " ");
@@ -90,7 +91,7 @@ void display_ascii(char* file) {
 	char* line = malloc(256);
 	char input[10];
 
-	strcpy(line, "./Operations/display_ascii");
+	strcpy(line, "./Operations/bin/display_ascii");
 	strcat(line, " ");
 	strcat(line, file);
 	strcat(line, " ");
@@ -112,7 +113,7 @@ void modify(char* file) {
 	char* line = malloc(256);
 	char input[10];
 
-	strcpy(line, "./Operations/modify");
+	strcpy(line, "./Operations/bin/modify");
 	strcat(line, " ");
 	strcat(line, file);
 	strcat(line, " ");
@@ -134,7 +135,7 @@ void Copy_from_file(char* file) {
 	char* line = malloc(256);
 	char input[10];
 
-	strcpy(line, "./Operations/patch_file");
+	strcpy(line, "./Operations/bin/patch_file");
 	strcat(line, " ");
 
 	printf("Which file would you like to write from ? ");
@@ -168,7 +169,7 @@ void Copy_from_mem(char* file) {
 	char* line = malloc(256);
 	char input[10];
 
-	strcpy(line, "./Operations/patch_mem");
+	strcpy(line, "./Operations/bin/patch_mem");
 	strcat(line, " ");
 
 	printf("The target file is %s\n", file);
