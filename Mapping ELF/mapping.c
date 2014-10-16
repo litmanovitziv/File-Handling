@@ -112,7 +112,7 @@ void readelf(void* map_start, Symlists* lists, int* count_main) {
 	Elf32_Ehdr *header; /* this will point to the header structure */
 	Elf32_Shdr *section_headers, *section; /* this will point to the section structure */
 	Elf32_Sym *symbol_table, *symbol;
-	char *shstrtab, *strtab, *sym_name;
+	char *shstrtab, *strtab, *sym_name, *type = "ELF";
 	int index, sym_size;
 
 	/* Lab 8 - Task 0 */
@@ -120,13 +120,12 @@ void readelf(void* map_start, Symlists* lists, int* count_main) {
 	header = (Elf32_Ehdr *) map_start;
 	/* now we can do whatever we want with header ! */
 
-	printf("Magic : ");
-	char* s = "ELF";	/* the desired string */
+	printf("  Magic: ");
 	for (index=1; index<4; index++) {
 		printf("%c ", (header->e_ident)[index]);
 	/*	printf("EI_MAG%d : %c\n", index, (header->e_ident)[index]);	*/
-		if (s[index-1] != (header->e_ident)[index]) {
-			perror("elf failed");
+		if (type[index-1] != (header->e_ident)[index]) {
+			perror("magic failed");
 			exit(-1);
 		}
 	}
@@ -135,14 +134,14 @@ void readelf(void* map_start, Symlists* lists, int* count_main) {
 		perror("\nclass failed");
 		exit(-2);
 	}
-	else printf("\nClass: %d\n", header->e_ident[index]);
+	else printf("\n  Class: %29d\n", header->e_ident[index]);
 
-	printf("Type: %d\n", header->e_type);
-	printf("Entry point address: 0x%x\n", header->e_entry);
-	printf("Start of section headers: %d (bytes into file)\n", header->e_shoff);
-	printf("Number of program headers : %d\n", header->e_phnum);
-	printf("Number of section headers : %d\n", header->e_shnum);
-	printf("Section header string table index : %d\n", header->e_shstrndx);
+	printf("  Type: %30d\n", header->e_type);
+	printf("  Entry point address: %21x (hexadecimal)\n", header->e_entry);
+	printf("  Start of section headers: %13d (bytes into file)\n", header->e_shoff);
+	printf("  Number of program headers: %9d\n", header->e_phnum);
+	printf("  Number of section headers: %10d\n", header->e_shnum);
+	printf("  Section header string table index: %d\n", header->e_shstrndx);
 
 	/* Lab 8 - Tasks 1 */
 	printf("\nSection Header Table:\n");

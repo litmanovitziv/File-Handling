@@ -5,7 +5,8 @@ typedef struct entry entry;
 struct entry {
 	entry *next;
 	char *tag;
-/*	int status = 0;	/* 0 - undefined, 1 - defined */
+/*	0 - undefined, 1 - defined */
+/*	int status = 0;	*/
 	int count;
 };
 
