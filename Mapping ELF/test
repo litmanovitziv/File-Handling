@@ -1,0 +1,11 @@
+mkdir Tests/Results
+./readelf Tests/a.out > Tests/Results/results1
+./readelf Tests/hasmain.o Tests/nomain.o > Tests/Results/results3a
+./readelf Tests/b1.o Tests/b3.o > Tests/Results/results3b
+echo >> Tests/Results/results3b
+echo >> Tests/Results/results3b
+./readelf Tests/b1.o Tests/b2.o >> Tests/Results/results3b
+./readelf Tests/c1.o Tests/c2.o > Tests/Results/results3c
+echo >> Tests/Results/results3c
+echo >> Tests/Results/results3c
+./readelf Tests/b1.o Tests/b2.o >> Tests/Results/results3c
