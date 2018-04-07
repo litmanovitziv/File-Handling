@@ -1,6 +1,7 @@
 ELF Reader
 ==========
-This Reader extracts the structure of a 32bit ELF file.  
+This Reader extracts the structure of ELF file for 32bit machines.  
+Include the -m32 flag when files are compiled, and use the Elf32 data structures.  
 The reader gets at least one command-line argument, ELF-format file :  
 	examine INFILE’s  
 
